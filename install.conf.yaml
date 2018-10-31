@@ -1,6 +1,7 @@
 - clean: ['~', '~/.config']
 - shell:
    - [mkdir -p ~/.config, Creating Config Dir...]
+   - [/scripts/brew_setup.sh, Installing brew...]
    - [brew tap Homebrew/bundle && brew bundle, Installing Brew Dependencies...]
    - [./scripts/neovim_setup.sh, Installing Neovim-Config...]
 - link:
@@ -10,5 +11,7 @@
       path: config/nvim
     ~/.tmux.conf:        tmux.conf
     ~/.zshrc:            zshrc
+    ~/.vimrc:            config/vim/vimrc
+    ~/.vim/bundle/Vundle.vim: config/vim/Vundle.vim
 - shell:
     - [git submodule update --init --recursive, Installing submodules...]
