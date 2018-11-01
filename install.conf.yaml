@@ -1,15 +1,17 @@
-- clean: ['~', '~/.config']
+- clean: ['~', '~/.config', "~/.vim"]
 - shell:
    - [mkdir -p ~/.config, Creating Config Dir...]
-   - [mkdir -p ~/.vim && mkdir ~/.vim/bundle, Creating .vim Dirs...]
-   - [/scripts/brew_setup.sh, Installing brew...]
+   - [mkdir -p ~/.vim && mkdir -p ~/.vim/bundle, Creating .vim Dirs...]
+   - [mkdir -p ~/.tmux && mkdir -p ~/.tmux/plugins, Creating tmux Dirs...]
+   - [./scripts/brew_setup.sh, Installing brew...]
    - [brew tap Homebrew/bundle && brew bundle, Installing Brew Dependencies...]
 - link:
     ~/.dotfiles:         ''
-    ~/.tmux.conf:        tmux.conf
+    ~/.tmux/plugins/tpm: config/tmux/tpm
+    ~/.tmux.conf:        config/tmux/tmux.conf
     ~/.zshrc:            zshrc
     ~/.vimrc:            config/vim/vimrc
     ~/.vim/bundle/Vundle.vim: config/vim/Vundle.vim
 - shell:
     - [git submodule update --init --recursive, Installing submodules...]
-    - [vi +PluginInstall, Installing vim plugins...]
+    - [vi +PluginInstall +qall, Installing vim plugins...]
