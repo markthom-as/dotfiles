@@ -120,7 +120,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 
 # Change NPM default path
@@ -131,21 +132,15 @@ export PATH="$HOME/.yarn/bin:$PATH"
 
 export GOPATH=$HOME
 export PATH=$PATH:$GOPATH/bin
+
+# Setup Kubectl completion
 if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /Users/markmarcantano/code/calm/infra/bin/tf_completion.sh
 
-#---------------------------------------------------#
-# Helpful to force parallelism for faster tf runs
-#---------------------------------------------------#
-alias tfp="~/bin/tf plan -parallelism=1000"
-alias tfpl="~/bin/tf plan -parallelism=1000| landscape"
-alias tfa="~/bin/tf apply -parallelism=1000"
-alias tfas="~/bin/tf apply-saved-plan -parallelism=1000"
-alias tfpu="~/bin/tf plan-update -parallelism=1000"
-alias tfg="~/bin/tf get -update -parallelism=1000"
-alias tfi="~/bin/tf init -parallelism=1000"
-alias tfd="~/bin/tf destroy -parallelism=1000"
-alias tfs="~/bin/tf show"
+#--------------------------------------------------#
+# Sourced Files
+#--------------------------------------------------#
+for file in "$(find ~/.dotfiles/config/profile/ -maxdepth 1 -name '*.sh' -print -quit)"; do source $file; done
+

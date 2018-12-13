@@ -5,6 +5,7 @@
    - [mkdir -p ~/.tmux && mkdir -p ~/.tmux/plugins, Creating tmux Dirs...]
    - [./scripts/brew_setup.sh, Installing brew...]
    - [brew tap Homebrew/bundle && brew bundle, Installing Brew Dependencies...]
+   - [./scripts/oh-my-zsh-setup.sh, Installing Oh My Zsh...]
 - link:
     ~/.dotfiles:         ''
     ~/.tmux/plugins/tpm: config/tmux/tpm
