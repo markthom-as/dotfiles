@@ -148,3 +148,6 @@ export TAICHI_NUM_THREADS=8
 export TAICHI_REPO_DIR=/Users/markmarcantano/taichi
 export PYTHONPATH=$TAICHI_REPO_DIR/python/:$PYTHONPATH
 export PATH=$TAICHI_REPO_DIR/bin/:$PATH
+
+# Source Talos
+source ~/.talosrc
