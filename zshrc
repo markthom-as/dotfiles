@@ -144,3 +144,7 @@ if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 #--------------------------------------------------#
 for file in "$(find ~/.dotfiles/config/profile/ -maxdepth 1 -name '*.sh' -print -quit)"; do source $file; done
 
+export TAICHI_NUM_THREADS=8
+export TAICHI_REPO_DIR=/Users/markmarcantano/taichi
+export PYTHONPATH=$TAICHI_REPO_DIR/python/:$PYTHONPATH
+export PATH=$TAICHI_REPO_DIR/bin/:$PATH
